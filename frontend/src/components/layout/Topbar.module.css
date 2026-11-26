@@ -1,0 +1,316 @@
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 80;
+  height: var(--topbar-height);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-lg);
+  gap: var(--space-md);
+}
+
+/* ---------- Left section ---------- */
+
+.leftSection {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex: 1;
+  min-width: 0;
+}
+
+.desktopOnly {
+  display: inline-flex;
+}
+
+/* ---------- Icon buttons (hamburger, collapse, theme, notifications) ---------- */
+
+.iconButton {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: none;
+  background: transparent;
+  color: var(--color-text-secondary);
+  border-radius: var(--radius-input);
+  transition: background-color 0.15s ease, color 0.15s ease;
+  flex-shrink: 0;
+}
+
+.iconButton:hover {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+/* Mobile hamburger hidden on desktop */
+.leftSection > .iconButton:first-child {
+  display: none;
+}
+
+/* Notification dot */
+
+.notificationDot {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-danger);
+  border: 1.5px solid var(--color-surface);
+}
+
+/* ---------- Search ---------- */
+
+.searchWrapper {
+  position: relative;
+  flex: 1;
+  max-width: 420px;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 12px;
+  color: var(--color-text-secondary);
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 9px 12px 9px 38px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-input);
+  background: var(--color-background);
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.searchInput::placeholder {
+  color: #9AABB8;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  background: var(--color-surface);
+  box-shadow: 0 0 0 3px rgba(23, 105, 170, 0.10);
+}
+
+/* ---------- Right section ---------- */
+
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  flex-shrink: 0;
+}
+
+/* ---------- Dropdown wrapper ---------- */
+
+.dropdownWrapper {
+  position: relative;
+}
+
+/* ---------- Language button ---------- */
+
+.langButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 38px;
+  padding: 0 12px;
+  border: none;
+  background: transparent;
+  color: var(--color-text-secondary);
+  border-radius: var(--radius-input);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.langButton:hover {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.langLabel {
+  white-space: nowrap;
+}
+
+/* ---------- Profile button ---------- */
+
+.profileButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 42px;
+  padding: 0 10px 0 4px;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-input);
+  color: var(--color-text);
+  transition: background-color 0.15s ease;
+}
+
+.profileButton:hover {
+  background: var(--color-primary-light);
+}
+
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #FFFFFF;
+  flex-shrink: 0;
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.2;
+  max-width: 160px;
+  overflow: hidden;
+}
+
+.profileName {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-navy);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 140px;
+}
+
+.profileEmail {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 140px;
+}
+
+/* ---------- Dropdown menu ---------- */
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 200px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-input);
+  box-shadow: 0 8px 24px rgba(23, 50, 77, 0.12);
+  padding: 6px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  animation: dropdownOpen 0.15s ease;
+}
+
+@keyframes dropdownOpen {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border: none;
+  background: none;
+  border-radius: 6px;
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  text-align: left;
+  text-decoration: none;
+  transition: background-color 0.12s ease, color 0.12s ease;
+  cursor: pointer;
+}
+
+.dropdownItem:hover {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.dropdownItemActive {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.dropdownItemDanger {
+  color: var(--color-danger);
+}
+
+.dropdownItemDanger:hover {
+  background: #FCE8EA;
+  color: var(--color-danger);
+}
+
+.dropdownDivider {
+  height: 1px;
+  background: var(--color-border);
+  margin: 4px 0;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1024px) {
+  .topbar {
+    padding: 0 var(--space-md);
+  }
+
+  .leftSection > .iconButton:first-child {
+    display: inline-flex;
+  }
+
+  .desktopOnly {
+    display: none;
+  }
+
+  .profileInfo {
+    display: none;
+  }
+
+  .langLabel {
+    display: none;
+  }
+
+  .langButton {
+    padding: 0 8px;
+  }
+}
+
+@media (max-width: 560px) {
+  .topbar {
+    padding: 0 var(--space-sm);
+    gap: var(--space-xs);
+  }
+
+  .searchWrapper {
+    max-width: none;
+  }
+
+  .searchInput::placeholder {
+    color: transparent;
+  }
+}
