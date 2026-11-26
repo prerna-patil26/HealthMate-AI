@@ -1,0 +1,213 @@
+.section {
+  padding: var(--space-2xl) var(--space-lg);
+  background: var(--color-background);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ---------- Header ---------- */
+
+.header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.eyebrow {
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+}
+
+.heading {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--color-navy);
+  letter-spacing: -0.4px;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.subheading {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* ---------- Steps row ---------- */
+
+.steps {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: var(--space-md);
+  flex-wrap: nowrap;
+}
+
+.stepWrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex: 1;
+  max-width: 380px;
+}
+
+.step {
+  position: relative;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  flex: 1;
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.step:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-3px);
+}
+
+/* ---------- Number badge ---------- */
+
+.numberBadge {
+  position: absolute;
+  top: -14px;
+  left: var(--space-lg);
+  background: var(--color-primary);
+  color: #FFFFFF;
+  font-size: var(--font-size-xs);
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 10px rgba(23, 105, 170, 0.25);
+}
+
+/* ---------- Icon ---------- */
+
+.iconWrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: var(--color-teal-light);
+  color: var(--color-teal);
+  margin-top: var(--space-sm);
+  margin-bottom: var(--space-xs);
+}
+
+/* ---------- Text ---------- */
+
+.stepTitle {
+  font-size: var(--font-size-h3);
+  font-weight: 700;
+  color: var(--color-navy);
+  margin: 0;
+}
+
+.stepDescription {
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* ---------- Connector arrows ---------- */
+
+.connector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-border);
+  flex-shrink: 0;
+}
+
+/* ---------- Safety note ---------- */
+
+.safetyNote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-2xl);
+  padding: var(--space-md) var(--space-lg);
+  background: var(--color-teal-light);
+  border: 1px solid rgba(19, 168, 158, 0.20);
+  border-radius: var(--radius-input);
+  color: var(--color-navy);
+  font-size: var(--font-size-sm);
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.safetyNote svg {
+  color: var(--color-teal);
+  flex-shrink: 0;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 960px) {
+  .steps {
+    flex-wrap: wrap;
+  }
+
+  .stepWrapper {
+    flex: 1 1 calc(50% - var(--space-md));
+    max-width: none;
+  }
+
+  .connector {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .steps {
+    flex-direction: column;
+    gap: var(--space-xl);
+  }
+
+  .stepWrapper {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  .heading {
+    font-size: 24px;
+  }
+
+  .subheading {
+    font-size: 15px;
+  }
+
+  .safetyNote {
+    font-size: var(--font-size-xs);
+    text-align: left;
+  }
+}

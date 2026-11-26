@@ -8,6 +8,12 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  /* Push scroll target below sticky navbar so headings aren't hidden */
+  scroll-padding-top: 80px;
+}
+
 html, body, #root {
   height: 100%;
 }
