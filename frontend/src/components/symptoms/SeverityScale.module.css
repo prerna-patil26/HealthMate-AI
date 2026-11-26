@@ -1,0 +1,202 @@
+.container {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+/* ---------- Header ---------- */
+
+.header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--color-navy);
+  margin: 0;
+  letter-spacing: -0.3px;
+  line-height: 1.25;
+}
+
+.hint {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ---------- Selected display ---------- */
+
+.selectedDisplay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--space-lg);
+  background: var(--color-background);
+  transition: border-color 0.2s ease;
+}
+
+.selectedNumber {
+  font-size: 56px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -2px;
+  transition: color 0.2s ease;
+}
+
+.selectedLabel {
+  font-size: var(--font-size-h3);
+  font-weight: 700;
+  line-height: 1.2;
+  transition: color 0.2s ease;
+}
+
+/* ---------- Scale row ---------- */
+
+.scaleRow {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 6px;
+  width: 100%;
+}
+
+.scaleButton {
+  aspect-ratio: 1 / 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-input);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+  padding: 0;
+}
+
+.scaleButton:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  transform: translateY(-1px);
+}
+
+.scaleButton:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.selected {
+  color: #FFFFFF !important;
+  transform: scale(1.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  z-index: 1;
+}
+
+.selected:hover {
+  transform: scale(1.08);
+}
+
+/* ---------- Gradient bar ---------- */
+
+.gradientTrack {
+  height: 10px;
+  background: var(--color-background);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+.gradientFill {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    #198754 0%,
+    #5BAE6C 30%,
+    #D99A24 60%,
+    #DC8345 80%,
+    #DC3545 100%
+  );
+  border-radius: var(--radius-full);
+  transition: width 0.35s ease;
+}
+
+/* ---------- Legend ---------- */
+
+.legend {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -8px;
+  padding: 0 4px;
+}
+
+.legendItem {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 640px) {
+  .container {
+    gap: var(--space-md);
+  }
+
+  .title {
+    font-size: 19px;
+  }
+
+  .hint {
+    font-size: var(--font-size-xs);
+  }
+
+  .selectedDisplay {
+    padding: var(--space-md);
+    gap: var(--space-sm);
+  }
+
+  .selectedNumber {
+    font-size: 42px;
+  }
+
+  .selectedLabel {
+    font-size: var(--font-size-body);
+  }
+
+  .scaleRow {
+    gap: 4px;
+  }
+
+  .scaleButton {
+    font-size: 12px;
+    border-radius: 8px;
+  }
+
+  .legendItem {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .scaleRow {
+    gap: 3px;
+  }
+
+  .scaleButton {
+    font-size: 11px;
+  }
+}

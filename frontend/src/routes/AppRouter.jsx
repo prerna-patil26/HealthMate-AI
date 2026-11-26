@@ -10,6 +10,7 @@ import AppLayout from '../components/layout/AppLayout';
 import DashboardPage from '../pages/Dashboard/DashboardPage';
 import StubPage from '../components/common/StubPage';
 import AssistantPage from '../pages/Assistant/AssistantPage';
+import SymptomsPage from '../pages/Symptoms/SymptomsPage';
 
 function AppRouter() {
   return (
@@ -25,10 +26,8 @@ function AppRouter() {
           <Route path="/dashboard" element={<DashboardPage />} />
 
           <Route path="/assistant" element={<AssistantPage />} />
-          <Route
-            path="/symptoms"
-            element={<StubPage title="Symptom Guidance" phase="Phase 7" />}
-          />
+          
+          <Route path="/symptoms" element={<SymptomsPage />} />
           <Route
             path="/reports"
             element={<StubPage title="Medical Reports" phase="Phase 7" />}
