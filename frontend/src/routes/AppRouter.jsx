@@ -11,6 +11,7 @@ import DashboardPage from '../pages/Dashboard/DashboardPage';
 import StubPage from '../components/common/StubPage';
 import AssistantPage from '../pages/Assistant/AssistantPage';
 import SymptomsPage from '../pages/Symptoms/SymptomsPage';
+import ReportsPage from '../pages/Reports/ReportsPage';
 
 function AppRouter() {
   return (
@@ -26,12 +27,10 @@ function AppRouter() {
           <Route path="/dashboard" element={<DashboardPage />} />
 
           <Route path="/assistant" element={<AssistantPage />} />
-          
+
           <Route path="/symptoms" element={<SymptomsPage />} />
-          <Route
-            path="/reports"
-            element={<StubPage title="Medical Reports" phase="Phase 7" />}
-          />
+          
+          <Route path="/reports" element={<ReportsPage />} />
           <Route
             path="/medicines"
             element={<StubPage title="Medicine Information" phase="Phase 7" />}

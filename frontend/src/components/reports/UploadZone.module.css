@@ -1,0 +1,390 @@
+.wrapper {
+  width: 100%;
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* ---------- Drop zone ---------- */
+
+.dropZone {
+  position: relative;
+  background: var(--color-background);
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--space-2xl) var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-sm);
+  transition: border-color 0.2s ease, background-color 0.2s ease,
+    transform 0.15s ease;
+  min-height: 240px;
+  justify-content: center;
+}
+
+.dropZoneActive {
+  border-color: var(--color-primary);
+  border-style: solid;
+  background: var(--color-primary-light);
+  transform: scale(1.005);
+}
+
+.dropZoneFilled {
+  border-style: solid;
+  border-color: var(--color-border);
+  background: var(--color-surface);
+  padding: var(--space-lg);
+  min-height: 140px;
+}
+
+.hiddenInput {
+  display: none;
+}
+
+/* ---------- Empty state content ---------- */
+
+.uploadIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  margin-bottom: var(--space-sm);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.dropZoneActive .uploadIcon {
+  transform: scale(1.08);
+  background: var(--color-surface);
+}
+
+.dropTitle {
+  font-size: var(--font-size-h3);
+  font-weight: 700;
+  color: var(--color-navy);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.dropSubtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.browseButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-primary);
+  color: #FFFFFF;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  padding: 10px 22px;
+  border: none;
+  border-radius: var(--radius-button);
+  margin-top: var(--space-sm);
+  transition: background-color 0.15s ease;
+  cursor: pointer;
+}
+
+.browseButton:hover {
+  background: var(--color-primary-hover);
+}
+
+/* ---------- File preview ---------- */
+
+.filePreview {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  width: 100%;
+  padding: var(--space-sm);
+}
+
+.fileIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.fileInfo {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+}
+
+.fileName {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-navy);
+  margin: 0 0 3px 0;
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fileMeta {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.removeButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid var(--color-border);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease,
+    background-color 0.15s ease;
+  flex-shrink: 0;
+}
+
+.removeButton:hover {
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+  background: #FCE8EA;
+}
+
+/* ---------- Processing state ---------- */
+
+.processingState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  width: 100%;
+}
+
+.spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--color-primary-light);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.processingText {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-primary);
+  margin: 0;
+}
+
+/* ---------- Success state ---------- */
+
+.successState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  width: 100%;
+}
+
+.successIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #E6F4EC;
+  color: var(--color-success);
+  animation: popIn 0.3s ease;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.successText {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-success);
+  margin: 0;
+}
+
+/* ---------- Error banner ---------- */
+
+.errorBanner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: #FCE8EA;
+  border-left: 3px solid var(--color-danger);
+  border-radius: var(--radius-input);
+  padding: 10px 12px;
+  color: #8E2A33;
+  font-size: var(--font-size-sm);
+  animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+.errorBanner svg {
+  color: var(--color-danger);
+  flex-shrink: 0;
+}
+
+.errorBanner span {
+  flex: 1;
+}
+
+.errorClose {
+  background: transparent;
+  border: none;
+  color: var(--color-danger);
+  cursor: pointer;
+  padding: 2px;
+  display: inline-flex;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.errorClose:hover {
+  background: rgba(220, 53, 69, 0.10);
+}
+
+/* ---------- Action buttons ---------- */
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  justify-content: flex-end;
+}
+
+.processButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-primary);
+  color: #FFFFFF;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--radius-button);
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.processButton:hover {
+  background: var(--color-primary-hover);
+}
+
+.cancelButton {
+  display: inline-flex;
+  align-items: center;
+  background: transparent;
+  border: 1.5px solid var(--color-border);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  padding: 9px 16px;
+  border-radius: var(--radius-button);
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.cancelButton:hover {
+  border-color: var(--color-text-secondary);
+  color: var(--color-text);
+}
+
+/* ---------- Helper note ---------- */
+
+.helperNote {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  text-align: center;
+  margin: var(--space-sm) 0 0 0;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 640px) {
+  .dropZone {
+    padding: var(--space-xl) var(--space-md);
+    min-height: 200px;
+  }
+
+  .dropZoneFilled {
+    padding: var(--space-md);
+    min-height: 120px;
+  }
+
+  .uploadIcon {
+    width: 64px;
+    height: 64px;
+  }
+
+  .dropTitle {
+    font-size: var(--font-size-body);
+  }
+
+  .dropSubtitle {
+    font-size: var(--font-size-xs);
+  }
+
+  .fileIcon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .filePreview {
+    padding: 4px;
+    gap: var(--space-sm);
+  }
+
+  .actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .processButton,
+  .cancelButton {
+    justify-content: center;
+    width: 100%;
+  }
+}
