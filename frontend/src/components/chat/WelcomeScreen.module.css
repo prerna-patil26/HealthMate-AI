@@ -1,0 +1,233 @@
+.screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xl);
+  padding: var(--space-xl) var(--space-md);
+  height: 100%;
+  justify-content: center;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-sm);
+}
+
+.iconCircle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-teal-light) 100%);
+  color: var(--color-primary);
+  margin-bottom: var(--space-sm);
+  box-shadow: 0 6px 20px rgba(23, 105, 170, 0.15);
+}
+
+.sparkle {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--color-teal);
+  color: #FFFFFF;
+  border: 2px solid var(--color-surface);
+}
+
+.heading {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--color-navy);
+  margin: 0;
+  letter-spacing: -0.3px;
+  line-height: 1.25;
+}
+
+.subheading {
+  font-size: var(--font-size-body);
+  color: var(--color-text-secondary);
+  margin: 0;
+  max-width: 460px;
+  line-height: 1.55;
+}
+
+/* ---------- Suggestions ---------- */
+
+.suggestionsSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.suggestionsLabel {
+  text-align: center;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.suggestionsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-sm);
+}
+
+/* 5th item spans full width on even-column grids */
+.suggestionsGrid > :last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+.suggestionCard {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 12px 14px;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-input);
+  text-align: left;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+  cursor: pointer;
+}
+
+.suggestionCard:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-card);
+}
+
+.suggestionTeal:hover {
+  border-color: var(--color-teal);
+}
+
+.suggestionBlue:hover {
+  border-color: var(--color-primary);
+}
+
+/* Icon squares */
+
+.suggestionIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  flex-shrink: 0;
+}
+
+.suggestionIconTeal {
+  background: var(--color-teal-light);
+  color: var(--color-teal);
+}
+
+.suggestionIconBlue {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.suggestionTitle {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.4;
+}
+
+/* ---------- Safety note ---------- */
+
+.safetyNote {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  background: var(--color-teal-light);
+  border: 1px solid rgba(19, 168, 158, 0.25);
+  border-radius: var(--radius-input);
+  padding: var(--space-md);
+  width: 100%;
+  color: var(--color-navy);
+}
+
+.safetyNote svg {
+  color: var(--color-teal);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.safetyNote p {
+  font-size: var(--font-size-xs);
+  line-height: 1.55;
+  margin: 0;
+  color: var(--color-navy);
+}
+
+.safetyNote strong {
+  color: var(--color-teal);
+  font-weight: 700;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 640px) {
+  .screen {
+    padding: var(--space-lg) var(--space-sm);
+    gap: var(--space-lg);
+  }
+
+  .iconCircle {
+    width: 72px;
+    height: 72px;
+  }
+
+  .iconCircle > svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .sparkle {
+    width: 22px;
+    height: 22px;
+  }
+
+  .sparkle > svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .heading {
+    font-size: 19px;
+  }
+
+  .subheading {
+    font-size: var(--font-size-sm);
+  }
+
+  .suggestionsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .suggestionsGrid > :last-child:nth-child(odd) {
+    grid-column: auto;
+  }
+
+  .suggestionCard {
+    padding: 11px 12px;
+  }
+}

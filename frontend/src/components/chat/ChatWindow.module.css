@@ -1,0 +1,50 @@
+.window {
+  flex: 1;
+  overflow-y: auto;
+  background: var(--color-background);
+  padding: var(--space-lg);
+  scroll-behavior: smooth;
+}
+
+/* ---------- Message list container ---------- */
+
+.messageList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  max-width: 780px;
+  margin: 0 auto;
+  width: 100%;
+  padding-bottom: var(--space-md);
+}
+
+/* ---------- Scrollbar styling ---------- */
+
+.window::-webkit-scrollbar {
+  width: 8px;
+}
+
+.window::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.window::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: var(--radius-full);
+}
+
+.window::-webkit-scrollbar-thumb:hover {
+  background: #C4D4DE;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 640px) {
+  .window {
+    padding: var(--space-md) var(--space-sm);
+  }
+
+  .messageList {
+    gap: var(--space-sm);
+  }
+}

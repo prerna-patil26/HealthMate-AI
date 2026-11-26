@@ -109,17 +109,18 @@ function DashboardPage() {
           </div>
           <div className={styles.emptyState}>
             <div className={styles.emptyIcon}>
-              <Clock size={32} />
+                <Clock size={32} />
             </div>
             <h3 className={styles.emptyTitle}>No activity yet</h3>
             <p className={styles.emptyText}>
-              Your recent conversations, uploaded reports, and timeline events will
-              appear here.
+                Your recent conversations, uploaded reports, and timeline events will
+                appear here. Start by asking HealthMate AI a question.
             </p>
             <Link to="/assistant" className={styles.emptyCta}>
-              Start your first conversation
+                <MessageSquareHeart size={14} />
+                Start your first conversation
             </Link>
-          </div>
+            </div>
         </section>
 
         {/* Health timeline preview */}

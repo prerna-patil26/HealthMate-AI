@@ -54,6 +54,11 @@
   text-decoration: none;
 }
 
+.welcomeCta:hover svg {
+  transform: rotate(15deg);
+  transition: transform 0.3s ease;
+}
+
 /* ---------- Section title ---------- */
 
 .section {
