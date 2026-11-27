@@ -8,11 +8,12 @@ import RegisterPage from '../pages/Register/RegisterPage';
 // Authenticated layout + pages
 import AppLayout from '../components/layout/AppLayout';
 import DashboardPage from '../pages/Dashboard/DashboardPage';
-import StubPage from '../components/common/StubPage';
 import AssistantPage from '../pages/Assistant/AssistantPage';
 import SymptomsPage from '../pages/Symptoms/SymptomsPage';
 import ReportsPage from '../pages/Reports/ReportsPage';
 import MedicinesPage from '../pages/Medicines/MedicinesPage';
+import TimelinePage from '../pages/Timeline/TimelinePage';
+import StubPage from '../components/common/StubPage';
 
 function AppRouter() {
   return (
@@ -26,18 +27,13 @@ function AppRouter() {
         {/* ---------- Authenticated routes (wrapped in AppLayout) ---------- */}
         <Route element={<AppLayout />}>
           <Route path="/dashboard" element={<DashboardPage />} />
-
           <Route path="/assistant" element={<AssistantPage />} />
-
           <Route path="/symptoms" element={<SymptomsPage />} />
-          
           <Route path="/reports" element={<ReportsPage />} />
-
           <Route path="/medicines" element={<MedicinesPage />} />
-          <Route
-            path="/timeline"
-            element={<StubPage title="Health Timeline" phase="Phase 7" />}
-          />
+          <Route path="/timeline" element={<TimelinePage />} />
+
+          {/* Still stubs — Phase 8 */}
           <Route
             path="/analytics"
             element={<StubPage title="Health Analytics" phase="Phase 8" />}
