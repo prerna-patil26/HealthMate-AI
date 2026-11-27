@@ -12,6 +12,7 @@ import StubPage from '../components/common/StubPage';
 import AssistantPage from '../pages/Assistant/AssistantPage';
 import SymptomsPage from '../pages/Symptoms/SymptomsPage';
 import ReportsPage from '../pages/Reports/ReportsPage';
+import MedicinesPage from '../pages/Medicines/MedicinesPage';
 
 function AppRouter() {
   return (
@@ -31,10 +32,8 @@ function AppRouter() {
           <Route path="/symptoms" element={<SymptomsPage />} />
           
           <Route path="/reports" element={<ReportsPage />} />
-          <Route
-            path="/medicines"
-            element={<StubPage title="Medicine Information" phase="Phase 7" />}
-          />
+
+          <Route path="/medicines" element={<MedicinesPage />} />
           <Route
             path="/timeline"
             element={<StubPage title="Health Timeline" phase="Phase 7" />}
