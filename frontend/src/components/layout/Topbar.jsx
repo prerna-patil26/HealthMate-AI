@@ -8,12 +8,14 @@ import {
   Globe,
   Bell,
   Moon,
+  Sun,
   User,
   Settings,
   LogOut,
   ChevronDown,
   HelpCircle,
 } from 'lucide-react';
+import { useSettings } from '../../context/SettingsContext';
 import styles from './Topbar.module.css';
 
 const LANGUAGES = [
@@ -24,6 +26,7 @@ const LANGUAGES = [
 ];
 
 function Topbar({ onToggleSidebar, onToggleCollapse, sidebarCollapsed }) {
+  const { settings, toggleTheme } = useSettings();
   const [profileOpen, setProfileOpen] = useState(false);
   const [languageOpen, setLanguageOpen] = useState(false);
   const [currentLang, setCurrentLang] = useState(LANGUAGES[0]);
@@ -44,16 +47,32 @@ function Topbar({ onToggleSidebar, onToggleCollapse, sidebarCollapsed }) {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  // Close dropdowns on Escape
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === 'Escape') {
+        setProfileOpen(false);
+        setLanguageOpen(false);
+      }
+    };
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, []);
+
   const selectLanguage = (lang) => {
     setCurrentLang(lang);
     setLanguageOpen(false);
   };
 
+  const isDark = settings.preferences.theme === 'dark';
+  const displayName = settings.profile.fullName || 'Guest User';
+  const displayEmail = settings.profile.email || 'guest@healthmate.ai';
+  const avatarInitial = displayName.charAt(0).toUpperCase();
+
   return (
     <header className={styles.topbar}>
       {/* Left: sidebar toggles + search */}
       <div className={styles.leftSection}>
-        {/* Mobile hamburger */}
         <button
           type="button"
           className={styles.iconButton}
@@ -63,17 +82,19 @@ function Topbar({ onToggleSidebar, onToggleCollapse, sidebarCollapsed }) {
           <Menu size={20} />
         </button>
 
-        {/* Desktop collapse toggle */}
         <button
           type="button"
           className={`${styles.iconButton} ${styles.desktopOnly}`}
           onClick={onToggleCollapse}
           aria-label={sidebarCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
         >
-          {sidebarCollapsed ? <PanelLeftOpen size={20} /> : <PanelLeftClose size={20} />}
+          {sidebarCollapsed ? (
+            <PanelLeftOpen size={20} />
+          ) : (
+            <PanelLeftClose size={20} />
+          )}
         </button>
 
-        {/* Search */}
         <div className={styles.searchWrapper}>
           <Search size={18} className={styles.searchIcon} />
           <input
@@ -107,7 +128,9 @@ function Topbar({ onToggleSidebar, onToggleCollapse, sidebarCollapsed }) {
                   key={lang.code}
                   type="button"
                   className={`${styles.dropdownItem} ${
-                    currentLang.code === lang.code ? styles.dropdownItemActive : ''
+                    currentLang.code === lang.code
+                      ? styles.dropdownItemActive
+                      : ''
                   }`}
                   onClick={() => selectLanguage(lang)}
                   role="menuitem"
@@ -119,14 +142,17 @@ function Topbar({ onToggleSidebar, onToggleCollapse, sidebarCollapsed }) {
           )}
         </div>
 
-        {/* Theme switcher (visual only) */}
+        {/* Theme switcher — real toggle */}
         <button
           type="button"
           className={styles.iconButton}
-          aria-label="Toggle theme"
-          title="Dark mode coming soon"
+          onClick={toggleTheme}
+          aria-label={
+            isDark ? 'Switch to light theme' : 'Switch to dark theme'
+          }
+          title={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
         >
-          <Moon size={20} />
+          {isDark ? <Sun size={20} /> : <Moon size={20} />}
         </button>
 
         {/* Notifications */}
@@ -148,12 +174,10 @@ function Topbar({ onToggleSidebar, onToggleCollapse, sidebarCollapsed }) {
             aria-haspopup="menu"
             aria-expanded={profileOpen}
           >
-            <div className={styles.avatar}>
-              <User size={16} />
-            </div>
+            <div className={styles.avatar}>{avatarInitial}</div>
             <div className={styles.profileInfo}>
-              <span className={styles.profileName}>Guest User</span>
-              <span className={styles.profileEmail}>guest@healthmate.ai</span>
+              <span className={styles.profileName}>{displayName}</span>
+              <span className={styles.profileEmail}>{displayEmail}</span>
             </div>
             <ChevronDown size={14} />
           </button>

@@ -13,6 +13,7 @@ import SymptomsPage from '../pages/Symptoms/SymptomsPage';
 import ReportsPage from '../pages/Reports/ReportsPage';
 import MedicinesPage from '../pages/Medicines/MedicinesPage';
 import TimelinePage from '../pages/Timeline/TimelinePage';
+import SettingsPage from '../pages/Settings/SettingsPage';
 import StubPage from '../components/common/StubPage';
 
 function AppRouter() {
@@ -32,6 +33,7 @@ function AppRouter() {
           <Route path="/reports" element={<ReportsPage />} />
           <Route path="/medicines" element={<MedicinesPage />} />
           <Route path="/timeline" element={<TimelinePage />} />
+          <Route path="/settings" element={<SettingsPage />} />
 
           {/* Still stubs — Phase 8 */}
           <Route
@@ -53,10 +55,6 @@ function AppRouter() {
           <Route
             path="/voice"
             element={<StubPage title="Voice Assistant" phase="Phase 8" />}
-          />
-          <Route
-            path="/settings"
-            element={<StubPage title="Settings" phase="Phase 8" />}
           />
           <Route
             path="/help"

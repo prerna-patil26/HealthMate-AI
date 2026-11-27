@@ -1,0 +1,473 @@
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+/* ---------- Toggle rows (reused from Preferences) ---------- */
+
+.toggleList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.toggleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  background: var(--color-background);
+  border-radius: var(--radius-input);
+}
+
+.toggleRowRequired {
+  background: #FFFDF5;
+  border: 1px solid #E8D1A2;
+}
+
+.toggleText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.toggleLabelRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.toggleLabel {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.3;
+}
+
+.toggleDescription {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+.requiredBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background: #FBF3E2;
+  color: #7A4F0E;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* ---------- Custom toggle switch (same as Preferences) ---------- */
+
+.switch {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  border-radius: 999px;
+  background: #C4D4DE;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease;
+  padding: 0;
+}
+
+.switch:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.switchOn {
+  background: var(--color-primary);
+}
+
+.switchLocked {
+  cursor: not-allowed;
+  opacity: 0.9;
+}
+
+.switchThumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.20);
+  transition: transform 0.2s ease;
+}
+
+.switchOn .switchThumb {
+  transform: translateX(20px);
+}
+
+/* ---------- Consent note ---------- */
+
+.consentNote {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  padding: var(--space-sm) var(--space-md);
+  background: #FBF3E2;
+  border-radius: var(--radius-input);
+  line-height: 1.5;
+}
+
+.consentNote svg {
+  color: #A56B0E;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ---------- Data action rows ---------- */
+
+.dataActions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.dataActionRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  background: var(--color-background);
+  border-radius: var(--radius-input);
+  flex-wrap: wrap;
+}
+
+.dangerRow {
+  background: #FCE8EA;
+  border: 1px solid #F2B8BD;
+}
+
+.dataActionText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 200px;
+}
+
+.dataActionTitle {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.dangerRow .dataActionTitle {
+  color: #7A1E27;
+}
+
+.dataActionDescription {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+.dangerRow .dataActionDescription {
+  color: #8E2A33;
+}
+
+/* ---------- Export / Delete buttons ---------- */
+
+.exportButton,
+.deleteButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  padding: 9px 16px;
+  border-radius: var(--radius-button);
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.exportButton {
+  background: transparent;
+  border: 1.5px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+.exportButton:hover {
+  background: var(--color-primary-light);
+}
+
+.deleteButton {
+  background: var(--color-danger);
+  color: #FFFFFF;
+  border: none;
+}
+
+.deleteButton:hover {
+  background: #B02A38;
+}
+
+/* ---------- Actions row ---------- */
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.resetButton,
+.saveButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  padding: 9px 18px;
+  border-radius: var(--radius-button);
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s ease;
+}
+
+.resetButton {
+  background: transparent;
+  border: 1.5px solid var(--color-border);
+  color: var(--color-text-secondary);
+}
+
+.resetButton:hover:not(:disabled) {
+  border-color: var(--color-text-secondary);
+  color: var(--color-text);
+}
+
+.resetButton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.saveButton {
+  background: var(--color-primary);
+  color: #FFFFFF;
+  border: none;
+}
+
+.saveButton:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+}
+
+.saveButton:disabled {
+  background: var(--color-border);
+  color: var(--color-text-secondary);
+  cursor: not-allowed;
+}
+
+/* ---------- Delete dialog ---------- */
+
+.dialogBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(23, 50, 77, 0.50);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.dialog {
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  padding: var(--space-xl);
+  max-width: 480px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(23, 50, 77, 0.30);
+  animation: dialogIn 0.25s ease;
+}
+
+@keyframes dialogIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.dialogIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #FCE8EA;
+  color: var(--color-danger);
+  margin: 0 auto;
+}
+
+.dialogTitle {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--color-navy);
+  margin: 0;
+}
+
+.dialogText {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: 1.55;
+}
+
+.dialogText strong {
+  color: #7A1E27;
+}
+
+.dialogPrompt {
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  margin: var(--space-xs) 0 0 0;
+}
+
+.dialogPrompt strong {
+  color: var(--color-danger);
+  font-family: 'Courier New', monospace;
+  letter-spacing: 1px;
+}
+
+.dialogInput {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-input);
+  font-family: 'Courier New', monospace;
+  font-size: var(--font-size-sm);
+  text-align: center;
+  letter-spacing: 2px;
+  color: var(--color-text);
+}
+
+.dialogInput:focus {
+  outline: none;
+  border-color: var(--color-danger);
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.10);
+}
+
+.dialogActions {
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: center;
+  margin-top: var(--space-sm);
+}
+
+.dialogCancel,
+.dialogConfirm {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: var(--radius-button);
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s ease;
+}
+
+.dialogCancel {
+  background: transparent;
+  border: 1.5px solid var(--color-border);
+  color: var(--color-text-secondary);
+}
+
+.dialogCancel:hover {
+  border-color: var(--color-text-secondary);
+  color: var(--color-text);
+}
+
+.dialogConfirm {
+  background: var(--color-danger);
+  color: #FFFFFF;
+  border: none;
+}
+
+.dialogConfirm:hover:not(:disabled) {
+  background: #B02A38;
+}
+
+.dialogConfirm:disabled {
+  background: #FAD6D9;
+  color: #FFFFFF;
+  cursor: not-allowed;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 640px) {
+  .toggleRow {
+    padding: 12px;
+  }
+
+  .toggleLabel {
+    font-size: var(--font-size-xs);
+  }
+
+  .dataActionRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .exportButton,
+  .deleteButton {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .resetButton,
+  .saveButton {
+    justify-content: center;
+  }
+
+  .dialog {
+    padding: var(--space-lg);
+  }
+
+  .dialogActions {
+    flex-direction: column-reverse;
+  }
+
+  .dialogCancel,
+  .dialogConfirm {
+    justify-content: center;
+    width: 100%;
+  }
+}
